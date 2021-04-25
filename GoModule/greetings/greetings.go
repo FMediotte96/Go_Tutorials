@@ -16,6 +16,7 @@ func Hello(name string) (string, error) {
 
 	//Create a message using a random format
 	message := fmt.Sprintf(randomFormat(), name)
+	//message := fmt.Sprintf(randomFormat()) to break the test
 	return message, nil
 }
 
@@ -26,7 +27,7 @@ func Hellos(names []string) (map[string]string, error) {
 	messages := make(map[string]string)
 	//Loop through the received slice of names, calling
 	//the Hello function to get a message for each name
-	for _ , name := range names {
+	for _, name := range names {
 		message, err := Hello(name)
 		if err != nil {
 			return nil, err
